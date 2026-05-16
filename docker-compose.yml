@@ -5,8 +5,8 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - MONGO_URI=mongodb+srv://user:Istakbal@cluster0.du6ovao.mongodb.net/smart-leads?retryWrites=true&w=majority&appName=Cluster0
-      - JWT_SECRET=yoursupersecretkeyhere123
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
       - NODE_ENV=production
 
   frontend:
