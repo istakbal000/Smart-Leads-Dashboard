@@ -11,9 +11,9 @@ services:
       - key: PORT
         value: 5000
       - key: MONGO_URI
-        sync: false
+        value: "mongodb+srv://user:Istakbal@cluster0.du6ovao.mongodb.net/smart-leads?retryWrites=true&w=majority&appName=Cluster0"
       - key: JWT_SECRET
-        sync: false
+        value: "yoursupersecretkeyhere123"
 
   - type: web
     name: smart-leads-frontend
