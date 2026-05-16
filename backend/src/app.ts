@@ -13,7 +13,13 @@ const app = express();
 
 // Middleware
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://smart-leads-dashboard-znk5.onrender.com',
+    'http://localhost:3000',
+  ],
+  credentials: true,
+}));
 app.use(morgan('dev'));
 app.use(express.json());
 
