@@ -9,37 +9,47 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import LeadsPage from './pages/LeadsPage';
 import LeadFormPage from './pages/LeadFormPage';
+import AnalyticsPage from './pages/AnalyticsPage';
+import LandingPage from './pages/LandingPage';
 
 const queryClient = new QueryClient();
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, isLoading } = useAuth();
-  
   if (isLoading) return null;
   if (!user) return <Navigate to="/login" />;
-  
   return <>{children}</>;
 };
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
+      {/* Public routes */}
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      
-      <Route path="/" element={
+
+      {/* Protected app routes */}
+      <Route path="/app" element={
         <ProtectedRoute>
           <DashboardLayout />
         </ProtectedRoute>
       }>
-        <Route index element={<Navigate to="/dashboard" />} />
+        <Route index element={<Navigate to="/app/dashboard" />} />
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="leads" element={<LeadsPage />} />
         <Route path="leads/new" element={<LeadFormPage />} />
         <Route path="leads/edit/:id" element={<LeadFormPage />} />
+        <Route path="analytics" element={<AnalyticsPage />} />
       </Route>
-      
-      <Route path="*" element={<Navigate to="/dashboard" />} />
+
+      {/* Legacy redirects for any old /dashboard links */}
+      <Route path="/dashboard" element={<Navigate to="/app/dashboard" />} />
+      <Route path="/leads" element={<Navigate to="/app/leads" />} />
+      <Route path="/leads/*" element={<Navigate to="/app/leads" />} />
+      <Route path="/analytics" element={<Navigate to="/app/analytics" />} />
+
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

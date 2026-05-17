@@ -107,7 +107,7 @@ const LeadsPage: React.FC = () => {
             Export CSV
           </button>
           <Link 
-            to="/leads/new"
+            to="/app/leads/new"
             className="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 rounded-lg text-sm font-medium text-white transition-colors"
           >
             <Plus className="w-4 h-4 mr-2" />
@@ -214,7 +214,7 @@ const LeadsPage: React.FC = () => {
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2">
-                        <Link to={`/leads/edit/${lead._id}`} className="p-1.5 text-slate-400 hover:text-primary-600 transition-colors">
+                        <Link to={`/app/leads/edit/${lead._id}`} className="p-1.5 text-slate-400 hover:text-primary-600 transition-colors">
                           <Edit2 className="w-4 h-4" />
                         </Link>
                         {user?.role === 'Admin' && (

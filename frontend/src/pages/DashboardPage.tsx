@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 import { 
   Users, 
   TrendingUp, 
@@ -97,9 +98,12 @@ const DashboardPage: React.FC = () => {
           </div>
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Performance Tracking</h3>
           <p className="text-slate-600 dark:text-slate-400 mb-6">Your lead conversion rate is up by 12% this week! Keep up the great work.</p>
-          <button className="px-6 py-2 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors">
+          <Link 
+            to="/app/analytics"
+            className="px-6 py-2 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors inline-block"
+          >
             View Analytics
-          </button>
+          </Link>
         </div>
       </div>
     </div>

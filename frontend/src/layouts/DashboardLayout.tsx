@@ -8,7 +8,8 @@ import {
   X, 
   Sun, 
   Moon,
-  PlusSquare
+  PlusSquare,
+  BarChart3
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { clsx } from 'clsx';
@@ -30,9 +31,10 @@ const DashboardLayout: React.FC = () => {
   };
 
   const navigation = [
-    { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-    { name: 'Leads', href: '/leads', icon: Users },
-    { name: 'Create Lead', href: '/leads/new', icon: PlusSquare },
+    { name: 'Dashboard', href: '/app/dashboard', icon: LayoutDashboard },
+    { name: 'Leads', href: '/app/leads', icon: Users },
+    { name: 'Analytics', href: '/app/analytics', icon: BarChart3 },
+    { name: 'Create Lead', href: '/app/leads/new', icon: PlusSquare },
   ];
 
   return (
