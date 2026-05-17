@@ -16,6 +16,7 @@ app.use(helmet());
 app.use(cors({
   origin: [
     'https://smart-leads-dashboard-znk5.onrender.com',
+    'https://smart-leads-dashboard-1-5y9r.onrender.com',
     'http://localhost:3000',
   ],
   credentials: true,
